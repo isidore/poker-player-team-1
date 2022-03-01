@@ -105,6 +105,8 @@ public class JsonTests {
 }
             """;
         JsonElement jsonObject = new JsonParser().parse(json);
-        Assertions.assertEquals(320, jsonObject.getAsJsonObject().get("current_buy_in").getAsInt());
+        var poker = new Poker(jsonObject);
+        Assertions.assertEquals(320, poker.getCurrentBuyIn());
+        Assertions.assertEquals(240, poker.getMinimumRaise());
     }
 }

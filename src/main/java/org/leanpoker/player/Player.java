@@ -8,11 +8,9 @@ public class Player {
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement request) {
-        JsonObject j = request.getAsJsonObject();
+        var poker = new Poker(request);
 
-        int current_buy_in = j.get("current_buy_in").getAsInt();
-        int mimimum_raise = j.get("minimum_raise").getAsInt();
-        return mimimum_raise;
+        return poker.getMinimumRaise();
     }
 
     public static void showdown(JsonElement game) {
