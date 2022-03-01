@@ -10,7 +10,9 @@ public class Player {
     public static int betRequest(JsonElement request) {
         JsonObject j = request.getAsJsonObject();
 
-        return j.get("current_buy_in").getAsInt()*2;
+        int current_buy_in = j.get("current_buy_in").getAsInt();
+        int mimimum_raise = j.get("minimum_raise").getAsInt();
+        return mimimum_raise;
     }
 
     public static void showdown(JsonElement game) {
